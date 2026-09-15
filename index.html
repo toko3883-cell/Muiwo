@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>梅窩 · 離島慢生活攝影 | Mui Wo · Lantau Island</title>
+<meta content="大嶼山梅窩旅遊指南：梅窩打卡、攝影體驗活動、攝影陪拍一日遊、動物有善攝影、攝影交流活動（外拍團、工作坊、影展分享、主題約拍）一覽。Mui Wo travel guide: check-in spots, farm experiences, photo tour, wildlife eco photo tour, four-season farming." name="description"/>
+<link href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+TC:wght@600;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ===== 設計 Token ===== */
+:root{
+  --ink:#17333b;
+  --ink-soft:#51666c;
+  --sea:#114b5f;
+  --bay:#2e7c8a;
+  --foam:#f7f2e8;
+  --sand:#ede3cf;
+  --clay:#c2693f;
+  --clay-deep:#a34f2c;
+  --field:#5e7c4c;
+  --moss:#8aa87e;
+  --silver:#b9c6c4;
+  --teal:#1e9b54;        /* WhatsApp 綠：按鈕、動物友善章節強調色 */
+  --teal-bright:#25D366;
+  --white:#fffdf9;
+  --card:#fffdf9;
+  --line:#e3d9c4;
+  --shadow:0 10px 30px rgba(17,75,95,.10);
+  --radius:18px;
+  --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  /* 標題字距 token（愈大愈疏，方便統一調校） */
+  --tracking-title:0.06em;   /* 主標題 Hero h1 */
+  --tracking-h2:0.04em;      /* 章節大標 h2 */
+  --tracking-h3:0.03em;      /* 卡片 / 小標 h3 */
+  --tracking-brand:0.10em;   /* 品牌名 */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--foam);
+  line-height:1.7;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+/* 中英文切換：預設顯示繁體，body.lang-cn 時顯示簡體 */
+.en{display:none}
+body.lang-cn .zh{display:none}
+body.lang-cn .en{display:inline}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--clay);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ===== 頂部導航 ===== */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,242,232,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:var(--tracking-brand)}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--clay);flex:none}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a,.lang-btn{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+  font-size:14.5px;font-weight:500;color:var(--ink-soft);border-radius:10px;
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover,.lang-btn:hover{color:var(--sea);background:rgba(46,124,138,.10)}
+.nav-links a.cta{background:var(--sea);color:#fff;margin-left:8px;padding:0 18px}
+.nav-links a.cta:hover{background:var(--bay)}
+.lang-btn{
+  border:1.5px solid var(--line);background:transparent;cursor:pointer;
+  font-weight:700;letter-spacing:.06em;margin-left:6px;min-width:52px;justify-content:center;
+}
+.lang-btn:hover{border-color:var(--bay)}
+.nav-toggle{display:none;border:0;background:none;cursor:pointer;padding:10px;border-radius:8px}
+.nav-toggle svg{display:block}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,75,95,.25) 0%,rgba(17,75,95,.10) 40%,rgba(17,75,95,.78) 100%),radial-gradient(120% 90% at 50% 55%,transparent 35%,rgba(10,40,52,.55) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:150px;padding-bottom:120px;width:100%;animation:heroIn .9s ease-out both}
+@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#e8f0ec;margin-bottom:22px;
+}
+.hero .divider{display:flex;align-items:center;gap:14px;margin:26px 0 30px;max-width:560px}
+.hero .divider::before,
+.hero .divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(245,185,138,.55),transparent)}
+.hero .divider span{font-size:12px;letter-spacing:.3em;color:#cfe3df;text-transform:uppercase}
+.hero .eyebrow::before{content:"";width:34px;height:2px;background:var(--clay)}
+.hero h1{
+  font-family:var(--serif);font-weight:900;
+  /* 9 字中文要單行：桌面上限 86px（1200px 視窗 9*86*1.08≈835px < 可用 1080px） */
+  font-size:clamp(44px,7.2vw,86px);
+  line-height:1.2;letter-spacing:var(--tracking-title);margin-bottom:28px;
+  max-width:20ch;
+}
+.hero h1 .zh{white-space:nowrap}
+.hero h1 .accent{color:#f5b98a}
+.hero p.lead{
+  max-width:560px;font-size:clamp(15px,1.55vw,18px);font-weight:300;line-height:1.85;
+  color:#f2efe6;margin-bottom:0;text-wrap:pretty;
+}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 26px;border-radius:999px;font-size:15px;font-weight:700;
+  transition:transform .2s,background .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--clay);color:#fff;box-shadow:0 8px 22px rgba(194,105,63,.35)}
+.btn-primary:hover{background:var(--clay-deep)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:rgba(255,255,255,.08)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.hero .tide{position:absolute;left:0;right:0;bottom:0;z-index:2;line-height:0}
+.hero .tide svg{width:100%;height:56px}
+
+/* ===== 章節通用 ===== */
+.section{padding:120px 0}
+.section.alt{background:var(--white)}
+.sec-head{margin-bottom:44px;max-width:760px}
+.sec-kicker{
+  display:flex;align-items:center;gap:12px;
+  font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:12px;
+}
+.sec-kicker::before{content:"";width:28px;height:2px;background:var(--clay)}
+.sec-head h2{
+  font-family:var(--serif);font-weight:900;font-size:clamp(36px,5.4vw,60px);
+  line-height:1.25;letter-spacing:var(--tracking-h2);margin-bottom:18px;text-wrap:balance;
+}
+.sec-head p{color:var(--ink-soft);font-size:16px;text-wrap:pretty}
+
+/* ===== 梅窩打卡 ===== */
+.spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:28px}
+.spot-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:38px 32px;transition:transform .25s,box-shadow .25s;position:relative;
+}
+.spot-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.spot-card .ico{
+  width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  background:rgba(46,124,138,.12);color:var(--sea);margin-bottom:22px;
+}
+.spot-card h3{font-family:var(--serif);font-size:25px;font-weight:700;margin-bottom:12px;letter-spacing:var(--tracking-h3);line-height:1.35}
+.spot-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px}
+.spot-card .tip{
+  display:inline-flex;align-items:flex-start;gap:7px;font-size:13px;color:var(--clay-deep);
+  background:rgba(194,105,63,.08);padding:8px 12px;border-radius:10px;line-height:1.5;
+}
+.spot-card .tip svg{flex:none;margin-top:2px}
+
+/* ===== 相簿（打卡／攝影體驗相片位） ===== */
+.gallery{margin-top:56px}
+.gallery-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  flex-wrap:wrap;margin-bottom:18px;
+}
+.gallery-head h3{font-family:var(--serif);font-size:30px;font-weight:700;letter-spacing:var(--tracking-h3)}
+.gallery-head .count{font-size:13px;font-weight:500;letter-spacing:.05em;color:var(--ink-soft)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
+.photo-slot{
+  aspect-ratio:4/3;border:2px dashed var(--silver);border-radius:14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:rgba(255,253,249,.6);color:var(--ink-soft);
+  transition:border-color .2s,background .2s,transform .2s;
+}
+.photo-slot:hover{border-color:var(--clay);background:var(--card);transform:translateY(-2px)}
+.photo-slot svg{color:var(--silver);transition:color .2s}
+.photo-slot:hover svg{color:var(--clay)}
+.photo-slot .slot-no{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--silver)}
+.photo-slot:hover .slot-no{color:var(--clay)}
+
+/* ===== 攝影體驗 ===== */
+.farm-feature{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:56px;
+}
+.farm-feature figure{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.farm-feature figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.farm-feature h3{font-family:var(--serif);font-size:32px;font-weight:700;margin-bottom:16px;letter-spacing:var(--tracking-h3);line-height:1.35}
+.farm-feature p{color:var(--ink-soft);font-size:15.5px;margin-bottom:16px}
+.meta-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.meta-list li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;color:var(--ink-soft)}
+.meta-list li svg{flex:none;margin-top:5px;color:var(--field)}
+.meta-list li b{color:var(--ink);font-weight:700}
+.link-btn{
+  display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 18px;
+  border:1.5px solid var(--sea);color:var(--sea);border-radius:999px;font-size:14px;font-weight:700;
+  transition:background .2s,color .2s;
+}
+.link-btn:hover{background:var(--sea);color:#fff}
+.farms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+.farm-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:38px 32px;transition:transform .25s,box-shadow .25s;
+}
+.farm-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.farm-card .tag{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--field);
+  background:rgba(94,124,76,.12);padding:4px 10px;border-radius:999px;margin-bottom:14px;
+}
+.farm-card h3{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:12px;letter-spacing:var(--tracking-h3);line-height:1.35}
+.farm-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px}
+
+/* ===== 四季 ===== */
+.seasons{position:relative;overflow:hidden;background:linear-gradient(160deg,#123f4d 0%,#1a5d6b 55%,#2a6f78 100%)}
+.seasons-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16}
+.seasons .wrap{position:relative;z-index:2}
+.seasons .sec-head h2,.seasons .sec-head p{color:#fff}
+.seasons .sec-kicker{color:#f5b98a}
+.seasons .sec-kicker::before{background:#f5b98a}
+.seasons .sec-head p{color:rgba(255,255,255,.85)}
+.season-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:0 auto 40px;max-width:1040px;justify-content:center}
+.season-card{
+  background:rgba(255,253,249,.94);border-radius:var(--radius);padding:44px 22px;
+  border-top:6px solid var(--sc,var(--sea));transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;min-height:230px;
+}
+.season-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.seasons .sec-head,
+.seasons .sec-head h2,
+.seasons .sec-head p,
+.seasons .howto{text-align:center}
+.seasons .sec-head p{max-width:640px;margin-left:auto;margin-right:auto}
+.seasons .howto{
+  max-width:900px;margin-left:auto;margin-right:auto;
+  display:flex;align-items:center;justify-content:center;
+  min-height:220px;padding:52px 40px;
+}
+.seasons .howto-lead{
+  font-family:var(--serif);font-size:30px;font-weight:800;line-height:1.6;
+  letter-spacing:var(--tracking-h3);color:var(--ink);margin:0;
+}
+.season-card{text-align:center}
+.season-card .s-ico{width:64px;height:64px;margin:0 auto 22px;color:var(--sc,var(--sea))}
+.season-card h3{font-family:var(--serif);font-size:34px;font-weight:800;margin:0;letter-spacing:var(--tracking-h3);line-height:1.3}
+.season-card .months{font-size:13px;color:var(--ink-soft);margin-bottom:10px;font-weight:500}
+.season-card p{font-size:14px;color:var(--ink-soft);margin:0}
+.season-card .work{
+  display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:var(--sc,var(--sea));
+  padding:4px 12px;border-radius:999px;letter-spacing:.1em;
+}
+.season-card[data-s="spring"]{--sc:#2f80c4}   /* 外拍團 · 海藍 */
+.season-card[data-s="summer"]{--sc:#d08a2e}  /* 工作坊 · 暖橙 */
+.season-card[data-s="autumn"]{--sc:#6f9a55}   /* 分享會 · 草綠 */
+.season-card[data-s="winter"]{--sc:#8e5bb5}   /* 主題約拍 · 紫 */
+.howto{
+  background:rgba(255,253,249,.94);border-radius:var(--radius);padding:36px 36px;
+  border-left:6px solid var(--clay);
+}
+.howto h4{font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:12px;letter-spacing:var(--tracking-h3)}
+.howto p{font-size:15px;color:var(--ink-soft)}
+.howto-wa{
+  display:inline-block;color:#1e9b54;font-weight:700;
+  border-bottom:1.5px solid currentColor;padding-bottom:1px;
+  transition:color .2s,transform .2s;
+}
+.howto-wa:hover{color:#25D366;transform:translateY(-1px)}
+
+/* ===== 生態遊預約 ===== */
+.eco-card{
+  position:relative;overflow:hidden;border-radius:28px;
+  background:linear-gradient(135deg,#0e3f52 0%,var(--bay) 62%,#3d7f73 100%);
+  color:var(--foam);padding:64px 56px;
+}
+.eco-card::before{
+  content:"";position:absolute;right:-80px;bottom:-110px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(247,242,232,.16),transparent 65%);
+}
+.eco-card .sec-kicker{color:rgba(247,242,232,.72)}
+.eco-card h2{font-family:var(--serif);font-size:46px;font-weight:700;line-height:1.3;max-width:640px;letter-spacing:var(--tracking-h2)}
+.eco-card .lead{color:rgba(247,242,232,.92);font-size:16px;max-width:660px;margin-top:10px}
+.eco-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:36px 0 28px}
+.eco-list li{
+  background:rgba(255,253,249,.12);border:1px solid rgba(255,253,249,.26);
+  border-radius:18px;padding:26px 22px;
+}
+.eco-list h4{font-family:var(--serif);font-size:16.5px;font-weight:700;margin-bottom:6px}
+.eco-list p{font-size:13.5px;color:rgba(247,242,232,.85);line-height:1.6}
+.eco-avail{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--clay);color:#fff;font-weight:700;
+  padding:13px 22px;border-radius:999px;font-size:15.5px;letter-spacing:.02em;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.eco-avail svg{flex:none}
+.eco-card .eco-cta{margin-top:24px}
+.eco-card .eco-cta a{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fffdf9;color:var(--sea);font-weight:700;
+  padding:14px 26px;border-radius:999px;font-size:15.5px;
+  transition:transform .2s,box-shadow .2s;
+}
+.eco-card .eco-cta a:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.22)}
+
+/* ===== 其他離島好去處 ===== */
+.island-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:12px}
+.island-card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:32px 28px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.island-card:hover{transform:translateY(-3px);border-color:var(--clay);box-shadow:var(--shadow)}
+.island-card .tag{align-self:flex-start}
+.island-card h3{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:var(--tracking-h3)}
+.island-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+.island-card .how{
+  margin-top:auto;font-size:13px;font-weight:600;color:var(--sea);
+  display:flex;align-items:center;gap:7px;border-top:1px dashed var(--line);padding-top:12px;
+}
+.island-card .how svg{flex:none;color:var(--clay)}
+
+
+/* ===== 一日遊 ===== */
+.timeline{position:relative;padding-left:42px;display:flex;flex-direction:column;gap:0}
+.timeline::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--clay),var(--sea))}
+.tl-item{position:relative;padding:0 0 44px 14px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-38px;top:8px;width:24px;height:24px;border-radius:50%;
+  background:var(--foam);border:6px solid var(--clay);box-sizing:border-box;
+}
+.tl-item:nth-child(even)::before{border-color:var(--sea)}
+.tl-item .when{
+  display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--clay-deep);
+  background:rgba(194,105,63,.10);padding:3px 12px;border-radius:999px;margin-bottom:8px;
+}
+.tl-item:nth-child(even) .when{color:var(--sea);background:rgba(46,124,138,.10)}
+.tl-item h3{font-family:var(--serif);font-size:23px;font-weight:700;margin-bottom:8px;line-height:1.35}
+.tl-item p{font-size:14.5px;color:var(--ink-soft)}
+
+/* ===== Footer ===== */
+footer{background:var(--sea);color:#e8f0ec;padding:56px 0 40px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.footer-brand{font-family:var(--serif);font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-brand .dot{width:10px;height:10px;border-radius:50%;background:#f5b98a;flex:none}
+footer p{font-size:14px;line-height:1.9;color:rgba(232,240,236,.85)}
+footer .sources{font-size:12.5px;color:rgba(232,240,236,.6);margin-top:16px}
+footer .notice{
+  margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);
+  font-size:12.5px;color:rgba(232,240,236,.7);
+}
+footer .footer-contact{
+  margin-top:14px;font-size:15px;font-weight:500;color:#fff;
+}
+footer .footer-contact a{
+  color:#7fe0c4;text-decoration:none;border-bottom:1px solid rgba(127,224,196,.5);
+  padding-bottom:1px;transition:border-color .2s,color .2s;
+}
+footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
+.eco-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:26px}
+.eco-cta .cta-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--teal);color:#fff;
+  padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;
+  box-shadow:0 8px 22px rgba(30,155,84,.3);
+  transition:transform .2s,background .2s,box-shadow .2s;
+}
+.eco-cta .cta-primary:hover{transform:translateY(-2px);background:var(--teal-bright);box-shadow:0 12px 28px rgba(30,155,84,.4)}
+.eco-cta .cta-primary svg{stroke:#fff}
+
+/* ===== 第04章 預約查詢提示 ===== */
+.tour-booking{
+  margin-top:18px;font-size:16px;font-weight:600;
+  color:var(--teal);
+}
+.tour-booking a{
+  color:#1f9e56;font-weight:700;white-space:nowrap;
+  border-bottom:1px dashed currentColor;text-decoration:none;
+  transition:color .2s;
+}
+.tour-booking a:hover{color:var(--coral)}
+.tour-notes,.tour-price{max-width:900px;margin:0 auto}
+.lead-box{
+  font-family:var(--serif);font-size:32px;font-weight:800;line-height:1.6;letter-spacing:.02em;
+  color:var(--ink);max-width:900px;margin:28px auto 0;padding:36px 40px;
+  background:linear-gradient(180deg,#fff,#faf7f2);
+  border:2px solid var(--clay);border-left:8px solid var(--coral);border-radius:16px;
+  box-shadow:0 10px 30px rgba(90,60,40,.10);text-align:center;
+}
+@media (max-width:560px){
+  .lead-box{font-size:20px;line-height:1.75;padding:24px 22px;border-radius:13px;border-left-width:6px}
+}
+.tour-notes{background:rgba(255,255,255,.62);border:1px solid rgba(196,168,132,.45);border-radius:14px;padding:26px 30px;margin-top:10px}
+.tour-notes-title{font-family:var(--serif);font-size:20px;font-weight:800;color:var(--clay);margin:0 0 14px}
+.tour-notes ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.tour-notes li{font-size:15px;line-height:1.7;color:var(--ink-soft)}
+.tour-price{list-style:none;padding:0;margin-top:26px;display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.tour-price li{font-size:18px;font-weight:700;color:var(--ink);background:rgba(255,255,255,.62);border:1px solid rgba(196,168,132,.45);border-radius:12px;padding:14px 26px;min-width:320px}
+.tour-price b{color:var(--coral)}
+@media (max-width:560px){
+.tour-notes{padding:20px 18px}
+.tour-notes li{font-size:14px}
+.tour-price li{min-width:0;width:100%;font-size:16px}
+}
+
+/* ===== 第04章 相片交付規則 ===== */
+.delivery{
+  margin-top:44px;padding:28px 30px;
+  background:linear-gradient(135deg,#f4fbf8 0%,#eef6ff 100%);
+  border:1px solid rgba(47,139,126,.18);border-radius:16px;
+}
+.delivery-title{
+  font-size:19px;font-weight:700;color:var(--ink);
+  margin:0 0 20px;padding-left:14px;
+  border-left:4px solid var(--teal);
+}
+.delivery-rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px}
+.delivery-rules li{display:flex;gap:16px;align-items:flex-start}
+.dr-icon{
+  flex:0 0 44px;width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  background:#fff;border:1px solid rgba(47,139,126,.2);
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.delivery-rules strong{
+  display:block;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;
+}
+.delivery-rules strong .zh,.delivery-rules strong .en{display:block}
+.delivery-rules strong .en{font-size:13px;font-weight:600;color:var(--teal);margin-top:2px}
+.delivery-rules p{font-size:14px;line-height:1.65;color:var(--gray);margin:0}
+.delivery-note{
+  margin:22px 0 0;padding-top:16px;border-top:1px dashed rgba(47,139,126,.25);
+  font-size:13px;color:var(--gray);line-height:1.6;
+}
+@media (max-width:640px){
+  .delivery{padding:22px 18px;margin-top:34px}
+  .delivery-rules li{flex-direction:row;gap:12px}
+  .dr-icon{flex:0 0 40px;width:40px;height:40px;font-size:20px}
+  .delivery-rules strong{font-size:15px}
+}
+
+/* ===== 浮動 WhatsApp 按鈕（FAB）===== */
+.fab-whatsapp{
+  position:fixed;right:22px;bottom:22px;z-index:90;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  text-decoration:none;
+  animation:fab-pulse 2.4s ease-out infinite;
+  transition:transform .2s,box-shadow .2s;
+}
+.fab-whatsapp:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.55)}
+.fab-whatsapp svg{fill:#fff}
+@keyframes fab-pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}
+  70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+@media (max-width:640px){
+  .fab-whatsapp{right:16px;bottom:16px;width:52px;height:52px}
+}
+
+/* ===== 響應式 ===== */
+@media (max-width:860px){
+  .nav-links{
+    position:fixed;inset:64px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;
+    background:var(--foam);padding:12px 16px 20px;border-bottom:1px solid var(--line);
+    display:none;box-shadow:0 20px 40px rgba(17,75,95,.12);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a,.lang-btn{justify-content:center}
+  .nav-links a.cta{margin-left:0;margin-top:6px}
+  .lang-btn{margin-left:0;margin-top:6px}
+  .nav-toggle{display:block}
+  .farm-feature{grid-template-columns:1fr;gap:28px;padding:28px 24px}
+  .section{padding:72px 0}
+  .footer-grid{grid-template-columns:1fr}
+  .eco-list{grid-template-columns:1fr}
+  .eco-card{padding:34px 26px}
+  .eco-card h2{font-size:26px}
+}
+@media (max-width:480px){
+  .wrap{padding:0 18px}
+  .hero{min-height:86vh}
+  .btn{width:100%}
+  .hero .cta-row{flex-direction:column}
+}
+
+/* ===== 攝影交流活動：淺色背景主題 ===== */
+.seasons{
+  background:var(--foam);
+}
+.seasons-bg{opacity:.42}
+/* 加一層淺色遮罩，令背景變淺、唔搶文字 */
+.seasons::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(160deg,rgba(247,242,232,.72) 0%,rgba(247,242,232,.55) 55%,rgba(237,227,207,.60) 100%);
+}
+.seasons .wrap{position:relative;z-index:2}
+/* 文字轉深色 */
+.seasons .sec-head h2,
+.seasons .sec-head p{color:var(--ink)}
+.seasons .sec-head p{color:var(--ink-soft)}
+.seasons .sec-kicker{color:var(--clay)}
+.seasons .sec-kicker::before{background:var(--clay)}
+/* 卡片：淺色玻璃風格 */
+.season-card{
+  background:rgba(255,253,249,.82);
+  box-shadow:0 8px 24px rgba(17,75,95,.08);
+  border:1px solid var(--line);
+}
+.season-card h3,
+.season-card .months,
+.season-card p{color:var(--ink)}
+.season-card .months{color:var(--ink-soft)}
+/* 交流活動 · 參加說明（大字居中） */
+.howto{
+  background:rgba(255,253,249,.86);
+  border:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(17,75,95,.08);
+}
+.howto h4{color:var(--ink)}
+
+/* ===== 動物友善毛孩攝影 ===== */
+.pet-grid{
+  display:grid;grid-template-columns:1fr;gap:24px;margin:8px 0 30px;
+  max-width:820px;
+}
+.pet-card{
+  position:relative;
+  background:rgba(255,253,249,.86);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:34px 26px 28px;
+  box-shadow:0 10px 28px rgba(17,75,95,.09);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.pet-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(17,75,95,.16)}
+.pet-icon{
+  position:absolute;top:-20px;left:22px;
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;line-height:1;
+  background:#fff;border:1px solid var(--line);
+  box-shadow:0 6px 16px rgba(17,75,95,.10);
+}
+.pet-card.duo{border-top:4px solid #6FAF9E}
+.pet-tag{
+  display:inline-block;font-size:12px;letter-spacing:.06em;
+  color:var(--clay);font-weight:700;
+  margin:6px 0 12px;padding-left:2px;
+}
+.pet-card h3{font-size:21px;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.pet-when{
+  font-size:13px;color:var(--sea);font-weight:700;
+  margin-bottom:12px !important;
+}
+.pet-card p{font-size:14.5px;line-height:1.75;color:var(--ink-soft)}
+.pet-meta{
+  display:block;font-size:13.5px;font-weight:700;color:var(--sea);
+  background:rgba(46,124,138,.09);border-radius:10px;
+  padding:8px 12px;margin:14px 0 6px;line-height:1.6;
+}
+.pet-meta .from{font-weight:400;font-size:12px;color:var(--ink-soft)}
+.pet-include{
+  list-style:none;padding:0;margin:4px 0 14px;border-top:1px dashed var(--line);padding-top:14px;
+}
+.pet-include li{
+  position:relative;padding-left:20px;margin-bottom:10px;
+  font-size:15px;font-weight:500;color:var(--ink);line-height:1.6;
+}
+.pet-include li:last-child{margin-bottom:0}
+.pet-include li b{color:var(--clay-deep);font-weight:700}
+.pet-include li::before{
+  content:"";position:absolute;left:2px;top:9px;
+  width:7px;height:7px;border-radius:2px;background:var(--field);
+}
+.pet-upgrade{
+  display:block;font-size:12.5px;color:var(--clay-deep);font-weight:700;
+  background:rgba(194,105,63,.09);border-radius:10px;padding:10px 12px;margin-top:10px;
+  line-height:1.6;border-top:2px dashed rgba(194,105,63,.25);
+}
+.pet-upgrade b{color:var(--clay-deep)}
+.pet-hl{list-style:none;padding:0;margin:8px 0 0}
+.pet-hl li{
+  position:relative;padding-left:20px;margin-bottom:8px;
+  font-size:13.5px;color:var(--ink-soft);line-height:1.6;
+}
+.pet-hl li::before{
+  content:"";position:absolute;left:2px;top:9px;
+  width:7px;height:7px;border-radius:50%;background:var(--clay);
+}
+/* 自然抓拍毛孩 宣傳塊 */
+.pet-natural{
+  background:#fff;border:2px solid var(--clay);border-radius:18px;
+  padding:28px 32px;margin-top:34px;max-width:820px;
+  box-shadow:0 8px 24px rgba(120,90,60,.08);
+}
+.pet-natural h3{font-size:20px;color:var(--ink);line-height:1.5;margin:0 0 18px;}
+.pet-natural-body p{font-size:15px;line-height:2;color:var(--ink-soft);margin:0;}
+.pet-natural-body p br{line-height:2.4;}
+.pet-natural-note{margin-top:16px !important;padding-top:16px;border-top:1px dashed var(--line);}
+.pet-natural-note span{color:var(--clay) !important;font-weight:600;}
+@media (max-width:640px){
+  .pet-natural{padding:22px 20px;border-radius:14px;}
+  .pet-natural h3{font-size:17px;}
+}
+/* 守則 + 出片心法 */
+.pet-tips{
+  background:rgba(255,253,249,.72);
+  border:1px dashed var(--line);border-radius:16px;
+  padding:26px 30px;margin-bottom:26px;max-width:820px;
+}
+.pet-tips h4{font-size:16px;color:var(--ink);margin-bottom:14px}
+.pet-tips ol{margin:0;padding-left:20px}
+.pet-tips li{
+  font-size:14px;color:var(--ink-soft);line-height:1.9;
+}
+.pet-tips b{color:var(--clay)}
+@media (max-width:640px){
+  .pet-card{padding:30px 22px 24px}
+}
+@media (max-width:900px){
+  .season-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .season-grid{grid-template-columns:1fr;max-width:420px}
+}
+/* ===== 離島親子互動攝影 ===== */
+.kids-grid{
+  display:grid;grid-template-columns:1fr;gap:24px;margin:8px 0 30px;
+  max-width:820px;
+}
+.kids-card{
+  position:relative;
+  background:rgba(255,253,249,.86);
+  border:1px solid var(--line);
+  border-top:4px solid var(--field);
+  border-radius:18px;
+  padding:34px 26px 28px;
+  box-shadow:0 10px 28px rgba(17,75,95,.09);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.kids-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(17,75,95,.16)}
+.kids-icon{
+  position:absolute;top:-20px;left:22px;
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;line-height:1;
+  background:#fff;border:1px solid var(--line);
+  box-shadow:0 6px 16px rgba(17,75,95,.10);
+}
+.kids-tag{
+  display:inline-block;font-size:12px;letter-spacing:.06em;
+  color:var(--clay);font-weight:700;
+  margin:6px 0 12px;padding-left:2px;
+}
+.kids-card h3{font-size:21px;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.kids-card p{font-size:14.5px;line-height:1.75;color:var(--ink-soft)}
+.kids-meta{
+  display:block;font-size:13.5px;font-weight:700;color:var(--sea);
+  background:rgba(46,124,138,.09);border-radius:10px;
+  padding:8px 12px;margin:14px 0 6px;line-height:1.6;
+}
+.kids-meta .from{font-weight:400;font-size:12px;color:var(--ink-soft)}
+.kids-include{
+  list-style:none;padding:0;margin:4px 0 14px;border-top:1px dashed var(--line);padding-top:14px;
+}
+.kids-include li{
+  position:relative;padding-left:20px;margin-bottom:10px;
+  font-size:15px;font-weight:500;color:var(--ink);line-height:1.6;
+}
+.kids-include li:last-child{margin-bottom:0}
+.kids-include li b{color:var(--clay-deep);font-weight:700}
+.kids-include li::before{
+  content:"";position:absolute;left:2px;top:9px;
+  width:7px;height:7px;border-radius:2px;background:var(--field);
+}
+.kids-highlight{
+  display:block;font-size:12.5px;color:var(--clay-deep);font-weight:700;
+  background:rgba(194,105,63,.09);border-radius:10px;padding:10px 12px;margin-top:10px;
+  line-height:1.6;border-top:2px dashed rgba(194,105,63,.25);
+}
+.kids-highlight b{color:var(--clay-deep)}
+.kids-tips{
+  background:rgba(255,253,249,.72);
+  border:1px dashed var(--line);border-radius:16px;
+  padding:26px 30px;margin-bottom:26px;max-width:820px;
+}
+.kids-tips h4{font-size:16px;color:var(--ink);margin-bottom:14px}
+.kids-tips ol{margin:0;padding-left:20px}
+.kids-tips li{font-size:14px;color:var(--ink-soft);line-height:1.9}
+.kids-tips b{color:var(--clay)}
+@media (max-width:640px){
+  .kids-card{padding:30px 22px 24px}
+}
+.howto p{color:var(--ink-soft)}
+.howto-wa{color:var(--field)}
+.howto-wa:hover{color:var(--bay)}
+@media (max-width:900px){
+  .hero h1{font-size:clamp(38px,8.5vw,54px)}
+  .sec-head h2{font-size:clamp(28px,6vw,40px)}
+  .eco-card h2{font-size:32px}
+  .eco-card{padding:44px 28px}
+  .farm-feature{grid-template-columns:1fr;gap:28px}
+  .section{padding:80px 0}
+}
+@media (max-width:560px){
+  .hero h1{font-size:clamp(32px,9vw,42px);max-width:none}
+  .sec-head h2{font-size:26px}
+  .eco-card h2{font-size:28px}
+  .eco-card{padding:36px 20px}
+  .eco-list{grid-template-columns:1fr}
+  .section{padding:64px 0}
+  .spot-card,.farm-card,.island-card,.season-card{padding:28px 22px}
+  .season-card h3{font-size:26px}
+  .seasons .howto{min-height:160px;padding:36px 22px}
+  .seasons .howto-lead{font-size:20px;line-height:1.7}
+}
+</style>
+</head>
+<body>
+<!-- ===== 頂部導航 ===== -->
+<header class="nav">
+<div class="wrap nav-inner">
+<a class="brand" href="#top"><span class="dot"></span>梅窩 · Mui Wo</a>
+<button aria-expanded="false" aria-label="開啟選單" class="nav-toggle" id="navToggle">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+<nav class="nav-links" id="navLinks">
+<a href="#spots"><span class="zh">梅窩打卡</span><span class="en">梅窝打卡</span></a>
+<a href="#seasons"><span class="zh">攝影交流活動</span><span class="en">摄影交流活动</span></a>
+<a href="#itinerary"><span class="zh">攝影陪拍一日遊</span><span class="en">摄影陪拍一日游</span></a>
+<a href="#kidsphoto"><span class="zh">梅窩親子互動攝影</span><span class="en">梅窝亲子互动摄影</span></a>
+<a href="#ecotour"><span class="zh">梅窩友善毛孩攝影</span><span class="en">梅窝友善毛孩摄影</span></a>
+<a href="#islands"><span class="zh">離島好去處</span><span class="en">离岛好去处</span></a>
+<button aria-label="切换到简体中文" class="lang-btn" id="langBtn">简体</button>
+</nav>
+</div>
+</header>
+<a aria-label="WhatsApp 預約查詢 9205 1136" class="fab-whatsapp" href="https://wa.me/85292051136" rel="noopener" target="_blank">
+<svg fill="currentColor" height="28" viewbox="0 0 24 24" width="28"><path d="M20.52 3.48A11.86 11.86 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.63-.5-5.18-1.45l-.37-.22-3.67.96.98-3.58-.24-.39A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.43-7.25c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.49-1.79-1.67-2.09-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"></path></svg>
+</a>
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+<img alt="梅窩河道與漁港小艇，兩岸山林村舍，水鄉寧靜氛圍 / Mui Wo river winding through village and lush hills, moored fishing boats along the banks" class="hero-bg" src="images/hero.jpg"/>
+<div class="wrap">
+<span class="eyebrow">大嶼山 · Lantau Island</span>
+<h1><span class="zh">梅窩，離島慢生活<span class="accent">攝影</span></span><span class="en">梅窝，离岛慢生活<span class="accent">摄影</span></span></h1>
+<p class="lead"><span class="zh">水清沙幼嘅銀礦灣、逾四百年嘅文武廟、田園攝影體驗同離島小店——由中環搭船約 35 分鐘，走進香港難得嘅慢攝小鎮。帶埋相機，由朝影到晚。</span><span class="en">水清沙幼的银矿湾、逾四百年的文武庙、田园摄影体验和离岛小店——由中环坐船约 35 分钟，走进香港难得的慢摄小镇。带完相机，从早拍到晚。</span></p>
+<div class="divider" aria-hidden="true"><span>慢生活攝影 · 慢活 · 慢遊</span></div>
+<div class="cta-row hero-cta">
+<a class="btn btn-primary" href="#spots"><span class="zh">睇梅窩打卡</span><span class="en">看梅窝打卡</span></a>
+<a class="btn btn-ghost" href="#itinerary"><span class="zh">一日遊路線</span><span class="en">一日游路线</span></a>
+</div>
+</div>
+<div aria-hidden="true" class="tide">
+<svg preserveaspectratio="none" viewbox="0 0 1440 56"><path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill="#f7f2e8"></path></svg>
+</div>
+</section>
+<!-- ===== 01 梅窩打卡 ===== -->
+<section class="section" id="spots">
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">01 · 梅窝打卡</span>
+<h2><span class="zh">梅窩打卡，一文睇晒</span><span class="en">梅窝打卡，一次看全</span></h2>
+<p><span class="zh">以下景點大部分步行可達，踩單車遊覽亦係梅窩嘅招牌玩法。建議預留半日至一日，慢慢行先有味道。</span><span class="en">以下景点大部分步行可达，踩单车游览亦是梅窝的招牌玩法。建议预留半天才一日，慢漫步才有味道。</span></p>
+</div>
+<div class="spots-grid">
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M2 12c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"></path><path d="M2 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"></path><circle cx="17.5" cy="5.5" r="1.6"></circle></svg></div>
+<h3><span class="zh">銀礦灣泳灘</span><span class="en">银矿湾泳滩</span></h3>
+<p><span class="zh">水清沙幼，設有觀景平台、燒烤場及小食亭；每年龍舟競渡嘅最佳觀賞點。</span><span class="en">水清沙幼，设有观景平台、烧烤场及小吃亭；每年龙舟竞渡的最佳观赏点。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">面向東面大海，朝早可以睇到海上日出；黃昏太陽會落到山後，呢度睇唔到日落。</span><span class="en">面向东面大海，早上可以看到海上日出；黄昏太阳会落到山后，这里看不到日落。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M4 20c0-6 4-9 8-9s8 3 8 9"></path><path d="M12 11c0-4 1-6 4-8-1 3-1 5 0 7"></path><path d="M12 16v4"></path></svg></div>
+<h3><span class="zh">銀礦瀑布</span><span class="en">银矿瀑布</span></h3>
+<p><span class="zh">分上下兩級瀑布，雨季水勢磅礡，旁邊有中式涼亭可以慢慢欣賞。</span><span class="en">分上下两级瀑布，雨季水势磅礴，旁边有中式凉亭可以慢慢欣赏。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">由村口步行約 20 分鐘，路況輕鬆。</span><span class="en">由村口步行约 20 分钟，路况轻松。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M4 21V9h16v12"></path><path d="M8 21v-5h8v5"></path><path d="M4 9l8-6 8 6"></path><path d="M4 13h16"></path><path d="M9 9h2v4H9zM13 9h2v4h-2z"></path></svg></div>
+<h3><span class="zh">鹿地塘村更樓</span><span class="en">鹿地塘村更楼</span></h3>
+<p><span class="zh">昔日村民為防禦土匪、海盜而建嘅守衛更樓，屹立村口，見證梅窩採銀時期嘅村落防禦歷史，係靜謐嘅打卡位。</span><span class="en">昔日村民为防御土匪、海盗而建的守卫更楼，屹立村口，见证梅窝采银时期的村落防御历史，是静谧的打卡位。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">位處鹿地塘村，順路行入村內可一探老村屋。</span><span class="en">位处鹿地塘村，顺路走进村内可一探老村屋。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M3 20c1-8 5-12 9-12s8 4 9 12"></path><path d="M12 8c0-3 1-5 3-6"></path><path d="M9 20c1-3 3-5 6-5s4 2 4 5"></path></svg></div>
+<h3><span class="zh">銀礦洞</span><span class="en">银矿洞</span></h3>
+<p><span class="zh">逾百年歷史嘅人工開鑿礦洞，1862 年發現鉛礦並開採，1896 年停產，留下洞穴遺蹟。</span><span class="en">逾百年历史的人工开凿矿洞，1862 年发现铅矿并开采，1896 年停产，留下洞穴遗迹。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">洞口已封閉，只可在外圍打卡影相。</span><span class="en">洞口已封闭，只可在外围打卡拍照。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M3 21h18"></path><path d="M5 21V9l7-6 7 6v12"></path><path d="M9 21v-6h6v6"></path><path d="M5 9h14"></path></svg></div>
+<h3><span class="zh">大地塘村北帝古廟</span><span class="en">大地塘村北帝古庙</span></h3>
+<p><span class="zh">供奉北帝（玄天上帝）嘅古老廟宇，庇佑水陸平安，係當地村民世代信仰所在；廟內保留傳統建築格局，古樸寧靜。</span><span class="en">供奉北帝（玄天上帝）的古老庙宇，庇佑水陆平安，是当地村民世代信仰所在；庙内保留传统建筑格局，古朴宁静。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">位處大地塘村，入內記得保持安靜。</span><span class="en">位处大地塘村，入内记得保持安静。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M4 21V10a8 8 0 0 1 16 0v11"></path><path d="M2 21h20"></path><path d="M12 14v3"></path><path d="M12 10l-2 4M12 10l2 4"></path></svg></div>
+<h3><span class="zh">洪聖廟</span><span class="en">洪圣庙</span></h3>
+<p><span class="zh">海邊古廟，昔日漁民出海前嘅心靈寄託，廟前風光開揚。</span><span class="en">海边古庙，昔日渔民出海前的心灵寄托，庙前风光开扬。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">可與文武廟一併走訪，感受漁村信仰。</span><span class="en">可与文武庙一并走访，感受渔村信仰。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M4 21V9h16v12"></path><path d="M8 21v-5h8v5"></path><path d="M4 9l8-6 8 6"></path><path d="M4 13h16"></path></svg></div>
+<h3><span class="zh">白銀鄉文武廟及牌坊</span><span class="en">白银乡文武庙及牌坊</span></h3>
+<p><span class="zh">供奉文帝（文昌帝君）、武帝（關聖帝君）嘅文武廟，見證梅窩採銀時期嘅村落信仰；廟前牌坊係經典打卡位。</span><span class="en">供奉文帝（文昌帝君）、武帝（关圣帝君）的文武庙，见证梅窝采银时期的村落信仰；庙前牌坊是经典打卡位。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">順路行入村內，仲有老村屋同水牛出沒。</span><span class="en">顺路走进村内，还有老村屋和水牛出没。</span></span>
+</article>
+<article class="spot-card">
+<div class="ico"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="24"><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="12" r="3"></circle><path d="M9 12h6M6 12c0-4 6-6 12-4"></path><path d="M5 16l-2 3M19 16l2 3"></path></svg></div>
+<h3><span class="zh">梅窩碼頭海濱長廊</span><span class="en">梅窝码头海滨长廊</span></h3>
+<p><span class="zh">沿海步道景觀開揚，望住船隻同綠山，係散步同影相嘅好地方。</span><span class="en">沿海步道景观开扬，望着船只和绿山，是散步和拍照的好地方。</span></p>
+<span class="tip"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M12 2v20M12 2l5 5M12 2L7 7"></path></svg><span class="zh">碼頭附近有單車租借，可以租車環島。</span><span class="en">码头附近有单车租借，可以租车环岛。</span></span>
+</article>
+</div>
+<!-- ===== 打卡相簿：20 個相片位（放入相片時，將 photo-slot 換成 <img src="..."> 即可） ===== -->
+<div class="gallery">
+<div class="gallery-head">
+<h3><span class="zh">打卡相簿</span><span class="en">打卡相簿</span></h3>
+<span class="count"><span class="zh">20 個相片位置 · 等你放入靚相</span><span class="en">20 个照片位置 · 等你放入靓相</span></span>
+</div>
+<div class="gallery-grid" id="spotsGallery"></div>
+</div>
+</div>
+</section>
+
+<!-- ===== 03 攝影交流活動 ===== -->
+<section class="section seasons" id="seasons">
+<img alt="梅窩攝影交流活動，影友於海濱一同外拍分享作品 / Photographers shooting and sharing together in Mui Wo" class="seasons-bg" src="images/seasons.jpg"/>
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">02 · 摄影交流</span>
+<h2><span class="zh">梅窩攝影交流，以影會友</span><span class="en">梅窝摄影交流，以影会友</span></h2>
+<p><span class="zh">梅窩係影友聚腳交流嘅好地方——傾心得、交流靈感、分享得意相片，一齊影、一齊進步，慢慢就會交到一班志同道合嘅影友，以影會友、聯繫友誼。</span><span class="en">梅窝是影友聚脚交流的好地方——倾心得、交流灵感、分享得意相片，一齐影、一齐进步，慢慢交到一班志同道合的影友，以影会友、联系友谊。</span></p>
+</div>
+<div class="season-grid">
+<article class="season-card" data-s="spring">
+<div class="s-ico"><svg fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="40"><path d="M4 20l4-12 4 8 4-14 4 18"></path><circle cx="4" cy="20" r="1.6"></circle><circle cx="20" cy="20" r="1.6"></circle></svg></div>
+<h3><span class="zh">慢生活攝影漫遊</span><span class="en">慢生活摄影漫游</span></h3>
+</article>
+<article class="season-card" data-s="summer">
+<div class="s-ico"><svg fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="40"><rect height="13" rx="2" width="18" x="3" y="4"></rect><path d="M8 21h8M12 17v4"></path></svg></div>
+<h3><span class="zh">技術分享</span><span class="en">技术分享</span></h3>
+</article>
+<article class="season-card" data-s="autumn">
+<div class="s-ico"><svg fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="40"><rect height="14" rx="2" width="18" x="3" y="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 15l-5-5L5 19"></path></svg></div>
+<h3><span class="zh">作品分享</span><span class="en">作品分享</span></h3>
+</article>
+<article class="season-card" data-s="winter">
+<div class="s-ico"><svg fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="40"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+<h3><span class="zh">攝影同樂日</span><span class="en">摄影同乐日</span></h3>
+</article>
+</div>
+<div class="howto">
+<p class="howto-lead"><span class="zh">有興趣可以 WhatsApp 聯絡我，一齊攝影交流，以影會友，不論新手定資深攝影愛好者都歡迎！</span><span class="en">有兴趣可以 WhatsApp 联系我，一起摄影交流，以影会友，不论新手还是资深摄影爱好者都欢迎！</span></p>
+</div>
+</div>
+</section>
+<!-- ===== 04 攝影陪拍一日遊 ===== -->
+<section class="section" id="itinerary">
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">03 · 摄影陪拍</span>
+<h2><span class="zh">梅窩陪拍一日遊｜朝玩到晚</span><span class="en">梅窝陪拍一日游｜从早玩到晚</span></h2>
+<p class="lead-box"><span class="zh">淨係梅窩，唔轉其他島！陪客人遊島 + 影相，節奏鬆動唔趕，平衡打卡同感受島嶼風情，適合單人、情侶或者細小組合。</span><span class="en">只在梅窝，不去其他岛！陪客人游岛 + 拍照，节奏松弛不赶，平衡打卡与感受岛屿风情，适合单人、情侣或小型组合。</span></p>
+<p class="tour-booking"><span class="zh">歡迎預約查詢：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 852-9205 1136</a></span><span class="en">欢迎预约查询：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 852-9205 1136</a></span></p>
+</div>
+<div class="tour-notes">
+<h4 class="tour-notes-title"><span class="zh">陪拍服務備註</span><span class="en">陪拍服务备注</span></h4>
+<ol>
+<li><span class="zh">只限梅窩，唔會轉去大澳、長洲或者其他地方；</span><span class="en">只限梅窝，不会转去大澳、长洲或者其他地方；</span></li>
+<li><span class="zh">節奏彈性：唔係硬趕打卡，客人鍾意某個景可以影耐啲，攰就縮減路程；</span><span class="en">节奏弹性：不是硬赶打卡，客人喜欢某个景可以拍久一点，累了就缩减路程；</span></li>
+<li><span class="zh">服務包：引導擺 pose、幫手揀角度、現場指導，唔係淨係按下快門；</span><span class="en">服务包含：引导摆 pose、帮忙拣角度、现场指导，不是只是按下快门；</span></li>
+<li><span class="zh">唔包：船飛、交通、餐飲、任何入場費，呢啲由客人自付；</span><span class="en">不包含：船票、交通、餐饮、任何入场费，这些由客人自付；</span></li>
+<li><span class="zh">天氣安排：落雨可以轉去樹蔭或者室內景點，亦都可以揀改期。</span><span class="en">天气安排：下雨可以转去树荫或者室内景点，也可以选择改期。</span></li>
+</ol>
+</div>
+<ul class="tour-price">
+<li><span class="zh">⏱ 每小時　💰 <b>HK$200</b> / 位起</span><span class="en">⏱ Per hour　💰 <b>HK$200</b> / pax from</span></li>
+              <li><span class="zh">⏱ 全日（約 8 小時）　💰 <b>HK$1,000</b> / 位起</span><span class="en">⏱ Full day (8 hrs)　💰 <b>HK$1,000</b> / pax from</span></li>
+</ul>
+<!-- 相片交付規則 -->
+<div class="delivery">
+<h3 class="delivery-title"><span class="zh">相片交付規則</span><span class="en">照片交付规则</span></h3>
+<ul class="delivery-rules">
+<li>
+<span aria-hidden="true" class="dr-icon">📷</span>
+<div>
+<strong><span class="zh">原圖直出，一律不修圖</span><span class="en">原图直出，一律不修图</span></strong>
+<p><span class="zh">所有相片均為相機原檔直出，唔會做磨皮、液化、瘦面等後製修飾，保留最真實自然嘅你同當下嘅光線氛圍。</span><span class="en">所有照片均为相机原图直出，不会做磨皮、液化、瘦脸等后期修饰，保留最真实自然的你与当下的光线氛围。</span></p>
+</div>
+</li>
+<li>
+<span aria-hidden="true" class="dr-icon">⚡</span>
+<div>
+<strong><span class="zh">全數交付，即日交相（24 小時內）</span><span class="en">全部交付，当天交片（24 小时内）</span></strong>
+<p><span class="zh">行程完結後即場整理，當日內（通常 2–4 小時內）透過讀卡器交收，蘋果手機隔空傳送，返到屋企就已經睇得。</span><span class="en">行程结束后即场整理，当日内（通常 2–4 小时内）透过读卡器交付，苹果手机隔空传送，回到家就已经看得。</span></p>
+</div>
+</li>
+
+<li>
+<span aria-hidden="true" class="dr-icon">💰</span>
+<div>
+<strong><span class="zh">預約需付訂金，惡劣天氣可全數退回</span><span class="en">预约需付定金，恶劣天气可全额退还</span></strong>
+<p><span class="zh">預約時需先付訂金以留位，餘額於當日完結後找清。除惡劣天氣（如八號風球、黑色暴雨警告生效）活動取消外，訂金將按原支付方式退回；個人臨時取消恕不退還，敬請見諒。</span><span class="en">预约时需先付定金以留位，余额于当日结束后付清。除恶劣天气（如八号风球、黑色暴雨警告生效）活动取消外，定金将按原支付方式退还；个人临时取消恕不退还，敬请见谅。</span></p>
+</div>
+</li>
+</ul>
+<p class="delivery-note"><span class="zh">※ 交付原則為「快、真、齊」；除惡劣天氣外，訂金一經確認不作退還。如當日需要現場挑選或即印相片，請預約時一併說明。</span><span class="en">※ 交付原则为「快、真、齐」；除恶劣天气外，定金一经确认不作退还。如当日需要现场挑选或即印照片，请预约时一并说明。</span></p>
+</div>
+</div>
+</section>
+<!-- ===== 05 離島親子互動攝影 ===== -->
+<section class="section" id="kidsphoto">
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">04 · 梅窩親子互動攝影</span>
+<h2><span class="zh">梅窩親子互動攝影</span><span class="en">梅窝亲子互动摄影</span></h2>
+<p class="lead"><span class="zh">一家人喺梅窩慢落嚟，由熟悉離島嘅攝影師帶路，去海灘、農莊、樹蔭同老村屋——捉低小朋友同大自然、同家人互動嘅真實瞬間，唔使趕景點，留足時間畀你哋玩、影、笑。</span><span class="en">一家人在梅窝慢下来，由熟悉离岛的摄影师带路，去海滩、农庄、树荫和老村屋——捕捉小朋友同大自然、同家人互动的真实瞬间，唔使赶景点，留足时间畀你们玩、影、笑。</span></p>
+</div>
+<div class="kids-grid">
+<article class="kids-card">
+<span class="kids-icon" aria-hidden="true">👨‍👩‍👧</span>
+<span class="kids-tag"><span class="zh">親子 · 家庭互動攝影</span><span class="en">亲子 · 家庭互动摄影</span></span>
+<h3><span class="zh">親子互動，玩住影住，自然出片</span><span class="en">亲子互动，边玩边拍，自然出片</span></h3>
+<ul class="kids-include" style="margin-top:14px">
+<li><span class="zh">⏱ 每小時　💰 <b>HK$200</b> / 位起</span><span class="en">⏱ Per hour　💰 <b>HK$200</b> / pax from</span></li>
+              <li><span class="zh">⏱ 全日（約 8 小時）　💰 <b>HK$1,000</b> / 位起</span><span class="en">⏱ Full day (8 hrs)　💰 <b>HK$1,000</b> / pax from</span></li>
+</ul>
+<span class="kids-meta"><span class="zh">📸 以家庭為單位計價 · 包含至少 2 位成人＋1 位小朋友</span><span class="en">📸 以家庭为单位计价 · 包含至少 2 位成人＋1 位小朋友</span></span>
+<p style="margin-top:14px"><span class="zh">適合週末一家人慢遊：銀礦灣沙灘堆沙、捉小蟹，農莊餵動物、採果，老村屋前一家人合影——全部自然互動，唔擺 pose、唔催場。</span><span class="en">适合周末一家人慢游：银矿湾沙滩堆沙、捉小蟹，农庄喂动物、采果，老村屋前一家人合影——全部自然互动，不摆 pose、不催场。</span></p>
+</article>
+</div>
+<div class="pet-natural">
+<h3><span class="zh">自然互動抓拍｜零擺拍｜原片直出，唔修圖</span><span class="en">自然互动抓拍｜零摆拍｜原片直出，不修图</span></h3>
+<div class="pet-natural-body">
+<p><span class="zh">專門捕捉小朋友最自在嘅狀態📸<br>完全唔擺拍，唔會安排任何道具或者強迫小朋友做動作。<br>全部相都唔修圖，原片直出，影到幾多張就一次過俾返你。<br>淨係捉低一家人玩、笑、擁抱、望住大海嘅真實瞬間，唔加任何包裝。</span><span class="en">专门捕捉小朋友最自在的状态📸<br>完全不摆拍，不会安排任何道具或者强迫小朋友做动作。<br>全部照片都不修图，原片直出，拍到多少张就一次性给你。<br>只捕捉一家人玩、笑、拥抱、望着大海的真实瞬间，不加任何包装。</span></p>
+<p class="pet-natural-note"><span class="zh">歡迎一家大小預約，沙灘、農莊、村屋都得，睇下小朋友邊度最放鬆😌</span><span class="en">欢迎一家大小预约，沙滩、农庄、村屋都可以，看小朋友在哪里最放松😌</span></p>
+</div>
+</div>
+<div class="kids-tips">
+<h4><span class="zh">親子影相小貼士 · 出片 3 招</span><span class="en">亲子影相小贴士 · 出片 3 招</span></h4>
+<ol>
+<li><span class="zh"><b>唔好叫「笑一個」</b>——俾小朋友自己玩，真笑容自然會出現。</span><span class="en"><b>唔好叫「笑一个」</b>——畀小朋友自己玩，真笑容自然会出现。</span></li>
+<li><span class="zh"><b>捉互動、唔捉擺 pose</b>——牽手、抱起、一齊睇海，一家人的畫面最有溫度。</span><span class="en"><b>捉互动、唔捉摆 pose</b>——牵手、抱起、一齐睇海，一家人的画面最有温度。</span></li>
+<li><span class="zh"><b>穿著淺色、同一色系</b>——白、米、牛仔藍最襯海邊同綠樹，成個系列睇落更和諧。</span><span class="en"><b>穿着浅色、同一色系</b>——白、米、牛仔蓝最衬海边同绿树，成个系列睇落更和谐。</span></li>
+</ol>
+</div>
+<span class="eco-avail"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg><span class="zh">只限星期六、日及公眾假期</span><span class="en">只限星期六、日及公众假期</span></span>
+<div class="eco-cta">
+<a class="cta-primary" href="https://wa.me/85292051136" rel="noopener" target="_blank"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">WhatsApp 預約查詢</span><span class="en">WhatsApp 预约查询</span></a>
+</div>
+</div>
+</section>
+<!-- ===== 06 動物友善毛孩攝影 ===== -->
+<section class="section" id="ecotour">
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">05 · 梅窩友善毛孩攝影</span>
+<h2><span class="zh">梅窩友善毛孩攝影</span><span class="en">梅窝友善毛孩摄影</span></h2>
+<p class="lead"><span class="zh">鍾意貓又鍾意狗？由熟悉梅窩嘅攝影師帶路，去村口、碼頭、海灘同山徑，同定居村貓、海邊狗互動影相——唔使追景點，留足時間畀你同毛孩玩到、影到。</span><span class="en">爱猫又爱狗？由熟悉梅窝的摄影师带路，去村口、码头、海滩和山径，同定居村猫、海边狗互动拍照——唔使追景点，留足时间畀你和毛孩玩到、影到。</span></p>
+</div>
+<div class="pet-grid">
+<article class="pet-card duo">
+<span class="pet-icon" aria-hidden="true">🐾</span>
+<span class="pet-tag"><span class="zh">動物友善 · 貓狗毛孩攝影</span><span class="en">动物友善 · 猫狗毛孩摄影</span></span>
+<h3><span class="zh">動物攝影，同毛孩互動影個夠</span><span class="en">动物摄影，同毛孩互动拍个够</span></h3>
+<ul class="pet-include" style="margin-top:14px">
+<li><span class="zh">⏱ 每小時　💰 <b>HK$200</b> / 位起</span><span class="en">⏱ Per hour　💰 <b>HK$200</b> / pax from</span></li>
+              <li><span class="zh">⏱ 全日（約 8 小時）　💰 <b>HK$1,000</b> / 位起</span><span class="en">⏱ Full day (8 hrs)　💰 <b>HK$1,000</b> / pax from</span></li>
+</ul>
+</article>
+</div>
+<div class="pet-natural">
+<h3><span class="zh">自然抓拍毛孩｜零擺拍｜原片直出，唔修圖</span><span class="en">自然抓拍毛孩｜零摆拍｜原片直出，不修图</span></h3>
+<div class="pet-natural-body">
+<p><span class="zh">專門影貓狗嘅自然狀態📸<br>完全唔擺拍，唔會擺任何裝飾同道具，亦都唔會引導、強迫毛孩做動作。<br>全部相都唔修圖，原片直出，影到幾多張就一次過俾返你。<br>淨係捕捉毛孩最自在、最真實嘅瞬間，唔加任何包裝。</span><span class="en">专门拍猫狗的自然状态📸<br>完全不摆拍，不会摆任何装饰和道具，也不会引导、强迫毛孩做动作。<br>全部照片都不修图，原片直出，拍到多少张就一次性给你。<br>只捕捉毛孩最自在、最真实的瞬间，不加任何包装。</span></p>
+<p class="pet-natural-note"><span class="zh">歡迎帶貓狗預約，屋企或者戶外都得，睇下毛孩邊度最放鬆😌</span><span class="en">欢迎带猫狗预约，家里或者户外都可以，看毛孩在哪里最放松😌</span></p>
+</div>
+</div>
+<div class="pet-tips">
+<h4><span class="zh">動物友善守則 · 出片 3 招</span><span class="en">动物友善守则 · 出片 3 招</span></h4>
+<ol>
+<li><span class="zh"><b>唔強抱、唔餵食</b>——尊重毛孩意願，玩得開心先出好片。</span><span class="en"><b>唔强抱、唔喂食</b>——尊重毛孩意愿，玩得开心先出好片。</span></li>
+<li><span class="zh"><b>蹲低平視</b>——同動物同一水平線，畫面即刻溫暖。</span><span class="en"><b>蹲低平视</b>——同动物同一水平线，画面即刻温暖。</span></li>
+<li><span class="zh"><b>捉自然互動</b>——摸、抱、對望、並排，唔使擺 pose 最真。</span><span class="en"><b>捉自然互动</b>——摸、抱、对望、并排，唔使摆 pose 最真。</span></li>
+</ol>
+</div>
+<span class="eco-avail"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg><span class="zh">只限星期六、日及公眾假期</span><span class="en">只限星期六、日及公众假期</span></span>
+<div class="eco-cta">
+<a class="cta-primary" href="https://wa.me/85292051136" rel="noopener" target="_blank"><svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">WhatsApp 預約查詢</span><span class="en">WhatsApp 预约查询</span></a>
+</div>
+</div>
+</section>
+<!-- ===== 06 其他離島好去處 ===== -->
+<section class="section alt" id="islands">
+<div class="wrap">
+<div class="sec-head">
+<span class="sec-kicker">06 · 离岛去处</span>
+<h2><span class="zh">其他離島好去處，玩埋大嶼山周邊</span><span class="en">其他离岛好去处，玩完大屿山周边</span></h2>
+<p><span class="zh">搭船過坪洲、長洲，或者沿南大嶼山公路一直去——貝澳、塘福、長沙、水口、大澳，每個地方都係唔同嘅一日遊。</span><span class="en">坐船过坪洲、长洲，或者沿南大屿山公路一直去——贝澳、塘福、长沙、水口、大澳，每个地方都是不和的一日游。</span></p>
+</div>
+<div class="island-grid">
+<article class="island-card">
+<span class="tag"><span class="zh">小島漫遊</span><span class="en">小岛漫游</span></span>
+<h3>坪洲 · Peng Chau</h3>
+<p><span class="zh">細小而寧靜嘅離島，彩色小屋、舊火柴廠同灰窯遺址訴說工業史；行上手指山頂，可以 360° 望晒維港同南丫島。</span><span class="en">细小而宁静的离岛，彩色小屋、旧火柴厂和灰窑遗址诉说工业史；走上手指山顶，可以 360° 望晒维港和南丫岛。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">梅窩碼頭搭橫水渡，約 15 分鐘</span><span class="en">梅窝码头搭横水渡，约 15 分钟</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">漁村小島</span><span class="en">渔村小岛</span></span>
+<h3>長洲 · Cheung Chau</h3>
+<p><span class="zh">香港最有人氣嘅離島——東灣泳灘玩水、張保仔洞探險、北帝廟睇太平清醮文化，仲有大魚蛋同芒果糯米糍等住你。</span><span class="en">香港最有人气的离岛——东湾泳滩玩水、张保仔洞探险、北帝庙看太平清醮文化，还有大鱼蛋和芒果糯米糍等着你。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">中環有快船直達；梅窩橫水渡（班次疏）亦到</span><span class="en">中环有快船直达；梅窝横水渡（班次疏）亦到</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">水鄉漁村</span><span class="en">水乡渔村</span></span>
+<h3>大澳 · Tai O</h3>
+<p><span class="zh">「東方威尼斯」——棚屋建喺水上，蝦醬蝦膏香飄街巷；行虎山觀景台望晒棚屋全景，運氣好仲可以見到中華白海豚。</span><span class="en">「东方威尼斯」——棚屋建在水上，虾酱虾膏香飘街巷；走虎山观景台望晒棚屋全景，运气好还可以见到中华白海豚。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">巴士 1 號直達，約 45 分鐘</span><span class="en">巴士 1 号直达，约 45 分钟</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">沙灘露營</span><span class="en">沙滩露营</span></span>
+<h3>貝澳 · Pui O</h3>
+<p><span class="zh">大嶼山南岸熱門露營地，水牛會喺沙灘同草地散步；沙灘長而闊，退潮時仲可以睇到潮池小生態。</span><span class="en">大屿山南岸热门露营地，水牛会在沙滩和草地散步；沙滩长而阔，退潮时还可以看到潮池小生态。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">巴士 1／3M，約 15 分鐘</span><span class="en">巴士 1／3M，约 15 分钟</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">長灘滑浪</span><span class="en">长滩滑浪</span></span>
+<h3>塘福 · Tong Fuk</h3>
+<p><span class="zh">大嶼山其中一條最長泳灘，沙幼水清；秋冬風起時，就係滑浪同風箏衝浪好手嘅樂園。</span><span class="en">大屿山其中一条最长泳滩，沙幼水清；秋冬风起时，就是滑浪和风筝冲浪好手的乐园。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">巴士 1／3M，約 20 分鐘</span><span class="en">巴士 1／3M，约 20 分钟</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">全港最長沙灘</span><span class="en">全港最长沙滩</span></span>
+<h3>長沙 · Cheung Sha</h3>
+<p><span class="zh">上長沙加下長沙全長約 3 公里，係全港最長沙灘；海邊有靚餐廳同營地，向南望住大海，睇日落一流。</span><span class="en">上长沙加下长沙全长约 3 公里，是全港最长沙滩；海边有靓餐厅和营地，向南望着大海，看日落一流。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">巴士 1／3M，約 25 分鐘</span><span class="en">巴士 1／3M，约 25 分钟</span></span>
+</article>
+<article class="island-card">
+<span class="tag"><span class="zh">生態海岸</span><span class="en">生态海岸</span></span>
+<h3>水口 · Shui Hau</h3>
+<p><span class="zh">大嶼山南端嘅生態寶庫——水口灣泥灘係候鳥同海洋生物嘅棲息地，退潮可以行出灘觀察潮間帶；夜晚光害極低，係觀星熱點。</span><span class="en">大屿山南端的生态宝库——水口湾泥滩是候鸟和海洋生物的栖息地，退潮可以走出滩观察潮间带；夜晚光害极低，是观星热点。</span></p>
+<span class="how"><svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg><span class="zh">巴士 1 號直達，約 35 分鐘</span><span class="en">巴士 1 号直达，约 35 分钟</span></span>
+</article>
+</div>
+<!-- ===== 離島相簿：20 個相片位（放入相片時，將 photo-slot 換成 <img src="..."> 即可） ===== -->
+<div class="gallery">
+<div class="gallery-head">
+<h3><span class="zh">離島相簿</span><span class="en">离岛相簿</span></h3>
+<span class="count"><span class="zh">20 個相片位置 · 等你放入靚相</span><span class="en">20 个照片位置 · 等你放入靓相</span></span>
+</div>
+<div class="gallery-grid" id="islandsGallery"></div>
+</div>
+</div>
+</section>
+<!-- ===== Footer ===== -->
+<footer>
+<div class="wrap footer-grid">
+<div>
+<div class="footer-brand"><span class="dot"></span>梅窩 · Mui Wo</div>
+<p><span class="zh">大嶼山東面嘅海濱小鎮，水清沙幼、綠樹青山，仲有全港數一數二古舊嘅廟宇。慢活一日，或者帶埋相機環島影足一日，都係香港難得嘅「離島慢生活攝影」。</span><span class="en">大屿山东面的海滨小镇，水清沙幼、绿树青山，还有全港数一数二古旧的庙宇。慢生活一日，或者带完相机环岛影足一日，都是香港难得的「离岛慢生活摄影」。</span></p>
+<p class="notice"><span class="zh">本頁資料以 2026 年 9 月為準；開放時間、收費及活動安排以各場地官方公布為準，訂場前請先確認。</span><span class="en">本页资料以 2026 年 9 月为准；开放时间、收费及活动安排以各场地官方公布为准，订场前请才确认。</span></p>
+<p class="footer-contact"><span class="zh">預約查詢：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 9205 1136</a></span><span class="en">预约查询：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 9205 1136</a></span></p>
+</div>
+<div>
+<p><b><span class="zh">資料來源</span><span class="en">资料来源</span></b></p>
+<p class="sources"><span class="zh">離島民政事務處「島語」梅窩旅遊指南、The Hideout、Holimood、土地教育基金、梅窩農地租賃等官方網頁及公開資料。</span><span class="en">离岛民政事务处「岛语」梅窝旅游指南、The Hideout、Holimood、土地教育基金、梅窝农地租赁等官方网页及公开资料。</span></p>
+<p class="sources" style="margin-top:6px"><span class="zh">配圖由攝影愛好者：萬隆，僅供示意。</span><span class="en">配图由摄影爱好者：万隆，仅供示意。</span></p>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  var toggle = document.getElementById("navToggle");
+  var links = document.getElementById("navLinks");
+  // 移動端選單
+  if (toggle && links) {
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // 中英文切換
+  var langBtn = document.getElementById("langBtn");
+  // 繁簡切換：zh = 繁體（廣東話），cn = 簡體
+  var TITLES = {
+    zh: "梅窩 · 離島慢生活攝影 | Mui Wo · Lantau Island",
+    cn: "梅窝 · 离岛慢生活摄影 | Mui Wo · Lantau Island"
+  };
+  function setLang(lang) {
+    var cn = lang === "cn";
+    document.body.classList.toggle("lang-cn", cn);
+    if (langBtn) {
+      langBtn.textContent = cn ? "繁體" : "简体";
+      langBtn.setAttribute("aria-label", cn ? "切換至繁體中文" : "切换到简体中文");
+    }
+    document.title = TITLES[lang] || TITLES.zh;
+    try { localStorage.setItem("muiwo-lang", lang); } catch (e) {}
+  }
+  if (langBtn) {
+    langBtn.addEventListener("click", function () {
+      var cn = document.body.classList.contains("lang-cn");
+      setLang(cn ? "zh" : "cn");
+    });
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("muiwo-lang"); } catch (e) {}
+  setLang(saved === "cn" ? "cn" : "zh");
+
+  // 相簿相片位生成（每個相簿 20 個位）
+  function buildSlots(containerId, count) {
+    var grid = document.getElementById(containerId);
+    if (!grid) { return; }
+    var frag = document.createDocumentFragment();
+    for (var i = 1; i <= count; i++) {
+      var div = document.createElement("div");
+      div.className = "photo-slot";
+      div.innerHTML =
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/>' +
+        '<circle cx="12" cy="13" r="4"/></svg>' +
+        '<span class="slot-no">' + (i < 10 ? "0" : "") + i + "</span>";
+      frag.appendChild(div);
+    }
+    grid.appendChild(frag);
+  }
+  buildSlots("spotsGallery", 20);
+  buildSlots("islandsGallery", 20);
+
+  // 滾動時標示當前章節
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
+  var sections = navAnchors.map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(function (s) { return !!s; });
+  function onScroll() {
+    var pos = window.scrollY + 120;
+    var current = null;
+    sections.forEach(function (sec) {
+      if (sec.offsetTop <= pos) { current = sec.getAttribute("id"); }
+    });
+    navAnchors.forEach(function (a) {
+      var on = a.getAttribute("href") === "#" + current;
+      a.style.color = on ? "var(--sea)" : "";
+      a.style.background = on ? "rgba(46,124,138,.10)" : "";
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
