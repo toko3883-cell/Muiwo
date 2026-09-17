@@ -193,19 +193,64 @@ a{color:inherit;text-decoration:none}
 .gallery-head .count{font-size:13px;font-weight:500;letter-spacing:.05em;color:var(--ink-soft)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
 .photo-slot{
-  position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  position:relative;aspect-ratio:4/3;border-radius:14px;
   background:rgba(255,253,249,.6);
+  /* overflow:hidden 唔好擺喺呢層——
+     編號係 absolute 定位，俾呢層截走就會整格消失 */
   transition:transform .25s,box-shadow .25s;
 }
+/* 圖片包裝層：專責做放大同裁切 */
+.photo-slot .slot-img{
+  width:100%;height:100%;overflow:hidden;border-radius:14px;
+  background:var(--foam);
+}
+.photo-slot .slot-img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s ease;will-change:transform;
+}
 .photo-slot:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
-.photo-slot:hover img{transform:scale(1.04)}
+.photo-slot:hover .slot-img img{transform:scale(1.08)}
 .photo-slot .slot-no{
-  position:absolute;left:10px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.14em;
+  position:absolute;left:10px;bottom:8px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.14em;
   color:#fff;text-shadow:0 1px 3px rgba(10,40,52,.55);
   background:rgba(17,75,95,.35);padding:2px 8px;border-radius:999px;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .25s,transform .25s;
 }
+.photo-slot:hover .slot-no,.photo-slot:focus-within .slot-no{opacity:1;transform:none}
 .photo-slot .slot-no.empty{background:rgba(17,75,95,.10);color:var(--ink-soft);box-shadow:none}
+
+/* ===== 點擊放大（燈箱）===== */
+.lightbox{
+  position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  gap:14px;padding:24px;background:rgba(8,34,45,.94);
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.lightbox[aria-hidden="false"]{opacity:1;pointer-events:auto}
+.lightbox figure{flex:1 1 auto;max-width:min(88vw,1400px);max-height:82vh;margin:0;
+  display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:100%;max-height:82vh;width:auto;height:auto;object-fit:contain;
+  border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.55);
+  transform:scale(.96);transition:transform .3s}
+.lightbox[aria-hidden="false"] img{transform:none}
+.lightbox .lb-meta{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 24px;color:#fff;
+  font-size:13px;letter-spacing:.08em;text-align:center;
+  background:linear-gradient(0deg,rgba(8,34,45,.85),transparent);
+}
+.lightbox .lb-close,.lightbox .lb-prev,.lightbox .lb-next{
+  position:absolute;width:44px;height:44px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;font-size:20px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.lightbox .lb-close{top:18px;right:18px}
+.lightbox .lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lightbox .lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.lightbox .lb-close:hover,.lightbox .lb-prev:hover,.lightbox .lb-next:hover{background:rgba(255,255,255,.32)}
+@media (max-width:640px){
+  .lightbox .lb-prev,.lightbox .lb-next{width:38px;height:38px;font-size:16px}
+  .photo-slot:hover .slot-img img{transform:none}   /* 觸控屏無 hover，唔好卡住 */
+}
 
 /* ===== 攝影體驗 ===== */
 .farm-feature{
@@ -1193,8 +1238,8 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
       if (list.length) {
         var src = BASE + list[idx] + ".jpg";
         fig.innerHTML =
-          '<img src="' + src + '" alt="梅窩攝影相片 ' + i + '" ' +
-          'width="800" height="600" loading="lazy">' +
+          '<span class="slot-img"><img src="' + src + '" alt="梅窩攝影相片 ' + i + '" ' +
+          'width="800" height="600" loading="lazy"></span>' +
           '<figcaption class="slot-no">' + (i < 10 ? "0" : "") + i + "</figcaption>";
       } else {
         fig.innerHTML =
@@ -1228,6 +1273,86 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // ===== 打卡相簿：點擊放大（燈箱）=====
+  // 支援滑鼠、觸控、鍵盤（← → / Esc），並記住滾動位置，關閉後頁面唔會跳。
+  (function () {
+    var galleryImgs = Array.prototype.slice.call(
+      document.querySelectorAll(".gallery-grid .photo-slot img")
+    );
+    if (!galleryImgs.length) { return; }
+
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.setAttribute("aria-hidden", "true");
+    lb.setAttribute("aria-label", "相片預覽，按 Esc 或點擊空白處關閉");
+    lb.innerHTML =
+      '<button class="lb-prev" aria-label="上一張" type="button">&#10094;</button>' +
+      '<figure><img src="" alt=""></figure>' +
+      '<button class="lb-next" aria-label="下一張" type="button">&#10095;</button>' +
+      '<span class="lb-meta"></span>' +
+      '<button class="lb-close" aria-label="關閉" type="button">&#10005;</button>';
+    document.body.appendChild(lb);
+
+    var big = lb.querySelector("img");
+    var meta = lb.querySelector(".lb-meta");
+    var pos = -1;
+    var scrollY = 0;
+
+    function show(n) {
+      pos = (n + galleryImgs.length) % galleryImgs.length;
+      var thumb = galleryImgs[pos];
+      big.src = thumb.src;
+      big.alt = thumb.alt;
+      meta.textContent = thumb.alt + "（" + (pos + 1) + " / " + galleryImgs.length + "）";
+    }
+    function open(n) {
+      scrollY = window.scrollY;
+      document.documentElement.style.scrollBehavior = "auto";
+      show(n);
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = "-" + scrollY + "px";
+      document.body.style.width = "100%";
+    }
+    function close() {
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
+      document.documentElement.style.scrollBehavior = "";
+    }
+    function step(d) { show(pos + d); }
+
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb || e.target.tagName === "FIGURE" || e.target.tagName === "IMG") {
+        close();
+      }
+    });
+    lb.querySelector(".lb-close").addEventListener("click", close);
+    lb.querySelector(".lb-prev").addEventListener("click", function (e) {
+      e.stopPropagation(); step(-1);
+    });
+    lb.querySelector(".lb-next").addEventListener("click", function (e) {
+      e.stopPropagation(); step(1);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (lb.getAttribute("aria-hidden") === "true") { return; }
+      if (e.key === "Escape") { close(); }
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") { step(-1); }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { step(1); }
+    });
+
+    galleryImgs.forEach(function (img, i) {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () { open(i); });
+    });
+  })();
 })();
 </script>
 </body>
