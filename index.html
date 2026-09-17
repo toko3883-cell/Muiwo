@@ -173,16 +173,19 @@ a{color:inherit;text-decoration:none}
 .gallery-head .count{font-size:13px;font-weight:500;letter-spacing:.05em;color:var(--ink-soft)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
 .photo-slot{
-  aspect-ratio:4/3;border:2px dashed var(--silver);border-radius:14px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  background:rgba(255,253,249,.6);color:var(--ink-soft);
-  transition:border-color .2s,background .2s,transform .2s;
+  position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  background:rgba(255,253,249,.6);
+  transition:transform .25s,box-shadow .25s;
 }
-.photo-slot:hover{border-color:var(--clay);background:var(--card);transform:translateY(-2px)}
-.photo-slot svg{color:var(--silver);transition:color .2s}
-.photo-slot:hover svg{color:var(--clay)}
-.photo-slot .slot-no{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--silver)}
-.photo-slot:hover .slot-no{color:var(--clay)}
+.photo-slot:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.photo-slot:hover img{transform:scale(1.04)}
+.photo-slot .slot-no{
+  position:absolute;left:10px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.14em;
+  color:#fff;text-shadow:0 1px 3px rgba(10,40,52,.55);
+  background:rgba(17,75,95,.35);padding:2px 8px;border-radius:999px;
+}
+.photo-slot .slot-no.empty{background:rgba(17,75,95,.10);color:var(--ink-soft);box-shadow:none}
 
 /* ===== 攝影體驗 ===== */
 .farm-feature{
@@ -835,7 +838,7 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
 
 <!-- ===== 03 攝影交流活動 ===== -->
 <section class="section seasons" id="seasons">
-<img alt="梅窩攝影交流活動，影友於海濱一同外拍分享作品 / Photographers shooting and sharing together in Mui Wo" class="seasons-bg" src="images/seasons.jpg"/>
+<img alt="梅窩攝影交流活動，影友於海濱一同外拍分享作品 / Photographers shooting and sharing together in Mui Wo" class="seasons-bg" src="images/seasons.jpg" onerror="this.onerror=null;this.src='images/gallery/photo1.jpg';"/>
 <div class="wrap">
 <div class="sec-head">
 <span class="sec-kicker">02 · 摄影交流</span>
@@ -1007,7 +1010,7 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
 <div class="sec-head">
 <span class="sec-kicker">06 · 离岛去处</span>
 <h2><span class="zh">其他離島好去處，玩埋大嶼山周邊</span><span class="en">其他离岛好去处，玩完大屿山周边</span></h2>
-<p><span class="zh">搭船過坪洲、長洲，或者沿南大嶼山公路一直去——貝澳、塘福、長沙、水口、大澳，每個地方都係唔同嘅一日遊。</span><span class="en">坐船过坪洲、长洲，或者沿南大屿山公路一直去——贝澳、塘福、长沙、水口、大澳，每个地方都是不和的一日游。</span></p>
+<p><span class="zh">搭船過坪洲、長洲，或者沿南大嶼山公路一直去——貝澳、塘福、長沙、水口、大澳，每個地方都係唔同嘅一日遊。</span><span class="en">坐船过坪洲、长洲，或者沿南大屿山公路一直去——贝澳、塘福、长沙、水口、大澳，每个地方都是不同的一日游。</span></p>
 </div>
 <div class="island-grid">
 <article class="island-card">
@@ -1069,7 +1072,7 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
 <div>
 <div class="footer-brand"><span class="dot"></span>梅窩 · Mui Wo</div>
 <p><span class="zh">大嶼山東面嘅海濱小鎮，水清沙幼、綠樹青山，仲有全港數一數二古舊嘅廟宇。慢活一日，或者帶埋相機環島影足一日，都係香港難得嘅「離島慢生活攝影」。</span><span class="en">大屿山东面的海滨小镇，水清沙幼、绿树青山，还有全港数一数二古旧的庙宇。慢生活一日，或者带完相机环岛影足一日，都是香港难得的「离岛慢生活摄影」。</span></p>
-<p class="notice"><span class="zh">本頁資料以 2026 年 9 月為準；開放時間、收費及活動安排以各場地官方公布為準，訂場前請先確認。</span><span class="en">本页资料以 2026 年 9 月为准；开放时间、收费及活动安排以各场地官方公布为准，订场前请才确认。</span></p>
+<p class="notice"><span class="zh">本頁資料以 2026 年 9 月為準；開放時間、收費及活動安排以各場地官方公布為準，訂場前請先確認。</span><span class="en">本页资料以 2026 年 9 月为准；开放时间、收费及活动安排以各场地官方公布为准，订场前请先确认。</span></p>
 <p class="footer-contact"><span class="zh">預約查詢：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 9205 1136</a></span><span class="en">预约查询：<a href="https://wa.me/85292051136" rel="noopener" target="_blank">WhatsApp 9205 1136</a></span></p>
 </div>
 <div>
@@ -1124,25 +1127,50 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
   try { saved = localStorage.getItem("muiwo-lang"); } catch (e) {}
   setLang(saved === "cn" ? "cn" : "zh");
 
-  // 相簿相片位生成（每個相簿 20 個位）
-  function buildSlots(containerId, count) {
+  // 相簿相片清單：檔案名單唔夠 20 張會自動迴圈，夠 20 張就順序顯示晒。
+  // 想換相／加相：直接改下面兩個陣列，HTML 無需再動。
+  var GALLERIES = {
+    spotsGallery: [
+      "gallery/photo1", "gallery/photo2", "gallery/photo3",
+      "gallery/photo4", "gallery/photo5"
+    ],
+    islandsGallery: [
+      "gallery/photo1", "gallery/photo2", "gallery/photo3",
+      "gallery/photo4", "gallery/photo5"
+    ]
+  };
+  // 離線開檔（file://）時，GitHub Pages 路徑同本地路徑要分開處理
+  var BASE = (location.protocol === "file:" || location.hostname === "localhost")
+    ? "images/"
+    : "images/";
+  function buildSlots(containerId) {
     var grid = document.getElementById(containerId);
     if (!grid) { return; }
+    var list = GALLERIES[containerId] || [];
     var frag = document.createDocumentFragment();
-    for (var i = 1; i <= count; i++) {
-      var div = document.createElement("div");
-      div.className = "photo-slot";
-      div.innerHTML =
-        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/>' +
-        '<circle cx="12" cy="13" r="4"/></svg>' +
-        '<span class="slot-no">' + (i < 10 ? "0" : "") + i + "</span>";
-      frag.appendChild(div);
+    for (var i = 1; i <= 20; i++) {
+      var idx = (i - 1) % Math.max(list.length, 1);
+      var fig = document.createElement("figure");
+      fig.className = "photo-slot";
+      if (list.length) {
+        var src = BASE + list[idx] + ".jpg";
+        fig.innerHTML =
+          '<img src="' + src + '" alt="梅窩攝影相片 ' + i + '" ' +
+          'width="800" height="600" loading="lazy">' +
+          '<figcaption class="slot-no">' + (i < 10 ? "0" : "") + i + "</figcaption>";
+      } else {
+        fig.innerHTML =
+          '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/>' +
+          '<circle cx="12" cy="13" r="4"/></svg>' +
+          '<figcaption class="slot-no empty">' + (i < 10 ? "0" : "") + i + "</figcaption>";
+      }
+      frag.appendChild(fig);
     }
     grid.appendChild(frag);
   }
-  buildSlots("spotsGallery", 20);
-  buildSlots("islandsGallery", 20);
+  buildSlots("spotsGallery");
+  buildSlots("islandsGallery");
 
   // 滾動時標示當前章節
   var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
