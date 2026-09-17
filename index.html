@@ -90,6 +90,26 @@ a{color:inherit;text-decoration:none}
 /* ===== Hero ===== */
 .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
 .hero img.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* 五張背景圖輪播：疊喺 hero.jpg 上面，靠 opacity 切換，GPU 合成唔觸發重排 */
+.hero-slides{position:absolute;inset:0;z-index:1;overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transform:scale(1.04);
+  animation:slideFade 25s linear infinite;
+  will-change:opacity,transform}
+.slide.s1{animation-delay:0s}
+.slide.s2{animation-delay:5s}
+.slide.s3{animation-delay:10s}
+.slide.s4{animation-delay:15s}
+.slide.s5{animation-delay:20s}
+/* 每張 5s 顯示：0–1.5s fade in，1.5–4.5s 停留，4.5–5s fade out，之後全程隱形
+   等到下一輪。換張數記得同步改 duration 同下面 @media 嗰組。 */
+@keyframes slideFade{
+  0%{opacity:0;transform:scale(1.06)}
+  6%{opacity:1;transform:scale(1.02)}
+  18%{opacity:1;transform:scale(1.02)}
+  24%{opacity:0;transform:scale(1)}
+  100%{opacity:0}
+}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,75,95,.25) 0%,rgba(17,75,95,.10) 40%,rgba(17,75,95,.78) 100%),radial-gradient(120% 90% at 50% 55%,transparent 35%,rgba(10,40,52,.55) 100%)}
 .hero .wrap{position:relative;z-index:2;padding-top:150px;padding-bottom:120px;width:100%;animation:heroIn .9s ease-out both}
 @keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -467,6 +487,14 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
 }
 @media (max-width:640px){
   .fab-whatsapp{right:16px;bottom:16px;width:52px;height:52px}
+  /* 手機數據同電量敏感：停咗動畫，只留第一張，慳流量又唔會閃 */
+  .slide{animation:none;opacity:0}
+  .slide.s1{opacity:1;transform:none}
+}
+/* 用家開咗「減少動態效果」／低電量模式時跟住停，避免頭暈同耗電 */
+@media (prefers-reduced-motion:reduce){
+  .slide{animation:none;opacity:0}
+  .slide.s1{opacity:1;transform:none}
 }
 
 /* ===== 響應式 ===== */
@@ -752,7 +780,17 @@ footer .footer-contact a:hover{color:#fff;border-bottom-color:#fff}
 </a>
 <!-- ===== Hero ===== -->
 <section class="hero" id="top">
-<img alt="梅窩河道與漁港小艇，兩岸山林村舍，水鄉寧靜氛圍 / Mui Wo river winding through village and lush hills, moored fishing boats along the banks" class="hero-bg" src="images/hero.jpg"/>
+<!-- 五張背景圖輪播：每張顯示 5 秒，25 秒一個循環。想加減張數，要同步改 CSS 嘅
+     animation-delay（每張隔 5s）同 keyframes 百分比（100% ÷ 張數）。
+     最尾嗰張 hero.jpg 係兜底，萬一 5 張都載不到都唔會黑屏。 -->
+<div class="hero-slides" aria-hidden="true">
+<img alt="" class="slide s1" src="images/gallery/photo1.jpg" width="1600" height="1067">
+<img alt="" class="slide s2" src="images/gallery/photo2.jpg" width="1600" height="1067">
+<img alt="" class="slide s3" src="images/gallery/photo3.jpg" width="1600" height="1067">
+<img alt="" class="slide s4" src="images/gallery/photo4.jpg" width="1600" height="1067">
+<img alt="" class="slide s5" src="images/gallery/photo5.jpg" width="1600" height="1067">
+</div>
+<img alt="梅窩河道與漁港小艇，兩岸山林村舍，水鄉寧靜氛圍 / Mui Wo river winding through village and lush hills, moored fishing boats along the banks" class="hero-bg" src="images/hero.jpg" onerror="this.onerror=null;this.remove()"/>
 <div class="wrap">
 <span class="eyebrow">大嶼山 · Lantau Island</span>
 <h1><span class="zh">梅窩，離島慢生活<span class="accent">攝影</span></span><span class="en">梅窝，离岛慢生活<span class="accent">摄影</span></span></h1>
